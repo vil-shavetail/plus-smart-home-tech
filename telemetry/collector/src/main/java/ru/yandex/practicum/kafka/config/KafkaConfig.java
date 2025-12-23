@@ -29,7 +29,7 @@ public class KafkaConfig {
 
         public static TopicType from(String type) {
             switch (type) {
-                case "sensor-events" -> {
+                case "sensors-events" -> {
                     return TopicType.SENSORS_EVENTS;
                 }
                 case "hubs-events" -> {
