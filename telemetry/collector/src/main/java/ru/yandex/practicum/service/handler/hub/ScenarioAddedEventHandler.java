@@ -19,7 +19,7 @@ public class ScenarioAddedEventHandler extends BaseHubEventHandler<ScenarioAdded
 
     @Override
     public HubEventType getMessageType() {
-        return HubEventType.SCENARIO_ADDED_EVENT;
+        return HubEventType.SCENARIO_ADDED;
     }
 
     @Override

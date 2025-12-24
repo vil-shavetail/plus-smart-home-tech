@@ -15,7 +15,7 @@ public class DeviceRemovedEventHandler extends BaseHubEventHandler<DeviceRemoved
 
     @Override
     public HubEventType getMessageType() {
-        return HubEventType.DEVICE_REMOVED_EVENT;
+        return HubEventType.DEVICE_REMOVED;
     }
 
     @Override

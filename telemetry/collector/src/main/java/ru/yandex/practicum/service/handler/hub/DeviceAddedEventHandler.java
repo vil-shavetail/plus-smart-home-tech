@@ -17,7 +17,7 @@ public class DeviceAddedEventHandler extends BaseHubEventHandler<DeviceAddedEven
 
     @Override
     public HubEventType getMessageType() {
-        return HubEventType.DEVICE_ADDED_EVENT;
+        return HubEventType.DEVICE_ADDED;
     }
 
     @Override
