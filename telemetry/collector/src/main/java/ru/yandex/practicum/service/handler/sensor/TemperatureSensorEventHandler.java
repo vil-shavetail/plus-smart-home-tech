@@ -1,7 +1,7 @@
 package ru.yandex.practicum.service.handler.sensor;
 
 import org.springframework.stereotype.Service;
-import ru.yandex.practicum.kafka.config.KafkaConfig;
+import ru.yandex.practicum.kafka.producer.KafkaEventProducer;
 import ru.yandex.practicum.kafka.telemetry.event.TemperatureSensorAvro;
 import ru.yandex.practicum.model.sensor.SensorEvent;
 import ru.yandex.practicum.model.sensor.TemperatureSensorEvent;
@@ -9,8 +9,8 @@ import ru.yandex.practicum.model.sensor.enums.SensorEventType;
 
 @Service
 public class TemperatureSensorEventHandler extends BaseSensorEventHandler<TemperatureSensorAvro> {
-    public TemperatureSensorEventHandler(KafkaConfig.KafkaEventProducer producer, KafkaConfig kafkaTopics) {
-        super(producer, kafkaTopics);
+    public TemperatureSensorEventHandler(KafkaEventProducer producer) {
+        super(producer);
     }
 
     @Override
@@ -29,5 +29,7 @@ public class TemperatureSensorEventHandler extends BaseSensorEventHandler<Temper
                 tempEvent.getTemperatureC(),
                 tempEvent.getTemperatureF()
         );
+
+
     }
 }
