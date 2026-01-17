@@ -1,9 +1,8 @@
 package ru.yandex.practicum.service.handler.sensor;
 
-import ru.yandex.practicum.model.sensor.SensorEvent;
-import ru.yandex.practicum.model.sensor.enums.SensorEventType;
+import ru.yandex.practicum.grpc.telemetry.event.SensorEventProto;
 
 public interface SensorEventHandler {
-    SensorEventType getMessageType();
-    void handle (SensorEvent event);
+    SensorEventProto.PayloadCase getMessageType();
+    void handle (SensorEventProto event);
 }

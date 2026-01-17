@@ -32,7 +32,7 @@ public class KafkaEventProducer implements AutoCloseable {
                 event
         );
 
-        log.trace("Сохраняю событие {} с хабом {} в топик {}",
+        log.trace("Saving an event {} from the hub {} to the topic {}",
                 event.getClass().getSimpleName(), hubId, topic);
 
         producer.send(record);
