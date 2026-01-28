@@ -1,4 +1,4 @@
-package ru.yandex.practicum.model.enums;
+package ru.yandex.practicum.store.enums;
 
 public enum ProductCategory {
     LIGHTING,
