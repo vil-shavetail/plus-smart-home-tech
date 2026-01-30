@@ -22,6 +22,9 @@
         <module>telemetry/collector</module>
         <module>telemetry/aggregator</module>
         <module>telemetry/analyzer</module>
+        <module>commerce/interaction-api</module>
+        <module>commerce/shopping-cart</module>
+        <module>commerce/warehouse</module>
     </modules>
 
     <properties>
@@ -33,6 +36,8 @@
         <grpc-spring-boot-starter.version>3.1.0.RELEASE</grpc-spring-boot-starter.version>
         <protobuf.version>3.23.4</protobuf.version>
         <grpc.version>1.63.0</grpc.version>
+        <spring-cloud-dependencies.version>2023.0.3</spring-cloud-dependencies.version>
+        <mapstruct.version>1.5.3.Final</mapstruct.version>
 
         <!--       Plugins       -->
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
@@ -86,6 +91,13 @@
             </dependency>
 
             <!--    / GRPC dependencies management        -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
