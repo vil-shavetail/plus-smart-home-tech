@@ -15,7 +15,6 @@ import ru.yandex.practicum.store.enums.QuantityState;
 import ru.yandex.practicum.repository.StoreRepository;
 import ru.yandex.practicum.store.dto.ProductDto;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 @Slf4j
@@ -87,7 +86,7 @@ public class StoreService {
         if (productDto.getProductCategory() != null) {
             product.setProductCategory(productDto.getProductCategory());
         }
-        if (productDto.getPrice() != null && productDto.getPrice().compareTo(BigDecimal.ONE) >= 0) {
+        if (productDto.getPrice() != null && productDto.getPrice() >= 0) {
             product.setPrice(productDto.getPrice());
         }
     }

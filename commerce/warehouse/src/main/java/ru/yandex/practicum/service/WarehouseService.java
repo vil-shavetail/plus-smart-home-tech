@@ -15,7 +15,10 @@ import ru.yandex.practicum.warehouse.dto.BookedProductsDto;
 import ru.yandex.practicum.warehouse.dto.NewProductInWarehouseRequest;
 
 import java.security.SecureRandom;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -61,5 +64,15 @@ public class WarehouseService {
 
     public AddressDto getWarehouseAddress() throws FeignException {
         return new AddressDto(CURRENT_ADDRESS, CURRENT_ADDRESS, CURRENT_ADDRESS, CURRENT_ADDRESS, CURRENT_ADDRESS);
+    }
+
+    public void returnProductsToWarehouse(Map<UUID, Long> products) throws FeignException {
+        List<WarehouseProduct> warehouseProducts = warehouseRepository.findAllById(products.keySet());
+        if (warehouseProducts.isEmpty()) {
+            return;
+        }
+        warehouseProducts.forEach(warehouseProduct -> {warehouseProduct.setQuantity(warehouseProduct.getQuantity() +
+                products.get(warehouseProduct.getProductId()));});
+        warehouseRepository.saveAll(warehouseProducts);
     }
 }

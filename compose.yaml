@@ -86,5 +86,44 @@ services:
       - ./volumes/postgres-shopping-cart:/var/lib/postgresql/data
       - ./commerce/shopping-cart/src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
 
+  db-delivery:
+    image: postgres:16.1
+    container_name: db-delivery
+    ports:
+      - "5436:5432"
+    environment:
+      - POSTGRES_DB=delivery
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=123456
+    volumes:
+      - ./volumes/postgres-delivery:/var/lib/postgresql/data
+      - ./commerce/delivery/src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  db-order:
+    image: postgres:16.1
+    container_name: db-order
+    ports:
+      - "5437:5432"
+    environment:
+      - POSTGRES_DB=order
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=123456
+    volumes:
+      - ./volumes/postgres-order:/var/lib/postgresql/data
+      - ./commerce/order/src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
+  db-payment:
+    image: postgres:16.1
+    container_name: db-payment
+    ports:
+      - "5438:5432"
+    environment:
+      - POSTGRES_DB=payment
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=123456
+    volumes:
+      - ./volumes/postgres-payment:/var/lib/postgresql/data
+      - ./commerce/payment/src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+
 volumes:
     postgres_data:

@@ -10,7 +10,6 @@ import ru.yandex.practicum.store.enums.ProductCategory;
 import ru.yandex.practicum.store.enums.ProductState;
 import ru.yandex.practicum.store.enums.QuantityState;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 @Getter
@@ -30,5 +29,6 @@ public class ProductDto {
     @NotNull(message = "The productId productCategory cannot be empty")
     private ProductCategory productCategory;
     @DecimalMin(value = "1.0", message = "The minimum value of the price parameter should be 1")
-    private BigDecimal price;
+    @NotNull
+    private Double price;
 }

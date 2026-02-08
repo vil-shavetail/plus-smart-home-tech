@@ -1,5 +1,4 @@
-CREATE TABLE IF NOT EXISTS warehouse
-(
+CREATE TABLE IF NOT EXISTS warehouse(
     product_id UUID PRIMARY KEY,
     fragile    BOOLEAN,
     width      DOUBLE PRECISION,
