@@ -23,7 +23,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class PaymentService {
     private final PaymentRepository paymentRepository;
-    private final PaymentMapper paymentMapper;
     private final StoreClient storeClient;
     private final OrderClient orderClient;
 
@@ -31,7 +30,7 @@ public class PaymentService {
         if (orderDto.getTotalPrice() == null || orderDto.getDeliveryPrice() == null || orderDto.getProductPrice() == null) {
             throw new RuntimeException("Insufficient data to pay for the order");
         }
-        Payment payment = paymentMapper.mapToPayment(orderDto);
+        Payment payment = PaymentMapper.mapToPayment(orderDto);
         Optional<Payment> oldPayment = paymentRepository.findByOrderId(orderDto.getOrderId());
         if (oldPayment.isPresent()) {
             log.info("Old Entity Payment: {}", oldPayment.get());

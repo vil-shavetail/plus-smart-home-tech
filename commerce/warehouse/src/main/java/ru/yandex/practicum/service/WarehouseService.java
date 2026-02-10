@@ -24,7 +24,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class WarehouseService {
     private final WarehouseRepository warehouseRepository;
-    private final WarehouseMapper warehouseMapper;
 
     private static final String[] ADDRESSES =
             new String[]{"ADDRESS_1", "ADDRESS_2"};
@@ -37,7 +36,7 @@ public class WarehouseService {
             throw new ValidationException("The product has already been added");
         });
 
-        WarehouseProduct warehouseProduct = warehouseMapper.toWarehouseProduct(request);
+        WarehouseProduct warehouseProduct = WarehouseMapper.toWarehouseProduct(request);
         warehouseRepository.save(warehouseProduct);
     }
 

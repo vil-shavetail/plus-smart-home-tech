@@ -1,12 +1,12 @@
 package ru.yandex.practicum.mapper;
 
 
-import org.springframework.stereotype.Service;
+import lombok.experimental.UtilityClass;
 import ru.yandex.practicum.model.Payment;
 import ru.yandex.practicum.order.dto.OrderDto;
 import ru.yandex.practicum.payment.dto.PaymentDto;
 
-@Service
+@UtilityClass
 public class PaymentMapper {
     public static Payment mapToPayment(OrderDto orderDto) {
         Payment entity = new Payment();

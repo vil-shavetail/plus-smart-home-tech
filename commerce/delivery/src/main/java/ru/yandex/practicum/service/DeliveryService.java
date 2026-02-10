@@ -18,16 +18,15 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class DeliveryService {
     private final DeliveryRepository deliveryRepository;
-    private final AddressMapper addressMapper;
     private final OrderClient orderClient;
     private final WarehouseClient warehouseClient;
 
     public DeliveryDto addDelivery(DeliveryDto newDelivery) {
-        Delivery delivery = addressMapper.mapToDelivery(newDelivery);
+        Delivery delivery = AddressMapper.mapToDelivery(newDelivery);
 
         delivery.setDeliveryState(DeliveryState.CREATED);
         deliveryRepository.save(delivery);
-        return addressMapper.mapToDeliveryDto(delivery);
+        return AddressMapper.mapToDeliveryDto(delivery);
     }
 
     public void successfulDelivery(UUID deliveryId) {

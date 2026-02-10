@@ -1,12 +1,12 @@
 package ru.yandex.practicum.mapper;
 
-import org.springframework.stereotype.Service;
+import lombok.experimental.UtilityClass;
 import ru.yandex.practicum.delivery.dto.DeliveryDto;
 import ru.yandex.practicum.model.Delivery;
 import ru.yandex.practicum.model.DeliveryAddress;
 import ru.yandex.practicum.warehouse.dto.AddressDto;
 
-@Service
+@UtilityClass
 public class AddressMapper {
     public static DeliveryAddress mapToAddress(AddressDto dto) {
         DeliveryAddress address = new DeliveryAddress();
