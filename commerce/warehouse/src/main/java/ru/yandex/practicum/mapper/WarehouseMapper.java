@@ -1,10 +1,10 @@
 package ru.yandex.practicum.mapper;
 
-import org.springframework.stereotype.Service;
+import lombok.experimental.UtilityClass;
 import ru.yandex.practicum.model.WarehouseProduct;
 import ru.yandex.practicum.warehouse.dto.NewProductInWarehouseRequest;
 
-@Service
+@UtilityClass
 public class WarehouseMapper {
     public WarehouseProduct toWarehouseProduct(NewProductInWarehouseRequest request) {
         if (request == null) {
